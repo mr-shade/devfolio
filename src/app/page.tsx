@@ -1,6 +1,8 @@
 // filepath: /Users/shaswatraj/Desktop/earn/devfolio/src/app/page.tsx
-import Image from "next/image";
 import Link from "next/link";
+import HeroSection from "@/components/shared/HeroSection";
+import FeaturedPosts from "@/components/blog/FeaturedPosts";
+import FeaturedProjects from "@/components/projects/FeaturedProjects";
 
 // Sample featured posts
 const featuredPosts = [
@@ -11,6 +13,7 @@ const featuredPosts = [
     date: 'May 18, 2025',
     readingTime: '5 min read',
     category: 'TypeScript',
+    coverImage: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1000&auto=format&fit=crop',
   },
   {
     id: 'react-performance-tips',
@@ -19,6 +22,7 @@ const featuredPosts = [
     date: 'May 15, 2025',
     readingTime: '7 min read',
     category: 'React',
+    coverImage: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?q=80&w=1000&auto=format&fit=crop',
   },
   {
     id: 'nextjs-app-router-guide',
@@ -27,6 +31,7 @@ const featuredPosts = [
     date: 'May 10, 2025',
     readingTime: '8 min read',
     category: 'Next.js',
+    coverImage: 'https://images.unsplash.com/photo-1618477388954-7852f32655ec?q=80&w=1000&auto=format&fit=crop',
   },
 ];
 
@@ -37,18 +42,25 @@ const featuredProjects = [
     title: 'Developer Portfolio',
     description: 'A modern portfolio website built with Next.js and TailwindCSS',
     tags: ['Next.js', 'React', 'TypeScript', 'TailwindCSS'],
-    image: '/projects/portfolio.jpg',
+    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1000&auto=format&fit=crop',
   },
   {
     id: 'task-manager',
     title: 'Task Manager App',
     description: 'A full-stack task management application with authentication',
     tags: ['React', 'Node.js', 'MongoDB', 'Express'],
-    image: '/projects/task-app.jpg',
+    image: 'https://images.unsplash.com/photo-1611224885990-2a7d48c357fd?q=80&w=1000&auto=format&fit=crop',
   },
 ];
 
 export default function Home() {
+  return (
+    <div className="space-y-8">
+      <HeroSection />
+      <FeaturedPosts posts={featuredPosts} />
+      <FeaturedProjects projects={featuredProjects} />
+    </div>
+  );
   return (
     <div className="flex flex-col gap-16">
       {/* Hero Section */}

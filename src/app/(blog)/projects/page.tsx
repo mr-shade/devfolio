@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Projects | DevFolio",
@@ -13,7 +14,7 @@ const projects = [
     title: 'Developer Portfolio',
     description: 'A modern portfolio website built with Next.js and TailwindCSS',
     tags: ['Next.js', 'React', 'TypeScript', 'TailwindCSS'],
-    image: '/projects/portfolio.jpg',
+    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1000&auto=format&fit=crop',
     featured: true,
   },
   {
@@ -102,12 +103,16 @@ export default function ProjectsPage() {
             href={`/projects/${project.id}`}
             className="group block"
           >
-            <div className="h-full border border-border dark:border-border-dark rounded-lg overflow-hidden bg-background dark:bg-background-dark transition-all group-hover:shadow-md dark:group-hover:shadow-gray-800">
-              <div className="aspect-video relative bg-muted dark:bg-muted-dark">
-                {/* Placeholder for image */}
-                <div className="absolute inset-0 flex items-center justify-center text-muted-foreground dark:text-muted-foreground-dark">
-                  Project Image
-                </div>
+            <div className="h-full border border-border dark:border-border-dark rounded-lg overflow-hidden bg-background dark:bg-background-dark transition-all group-hover:shadow-md dark:group-hover:shadow-gray-800 group-hover:border-primary dark:group-hover:border-primary-dark group-hover:scale-[1.01] duration-200">
+              <div className="aspect-video relative bg-muted dark:bg-muted-dark overflow-hidden">
+                <Image 
+                  src={project.image} 
+                  alt={project.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"/>
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2 group-hover:text-primary dark:group-hover:text-primary-dark transition-colors">

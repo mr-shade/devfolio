@@ -4,6 +4,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import Navigation from "@/components/shared/Navigation";
 import Footer from "@/components/shared/Footer";
 import "./globals.css";
+export const runtime = "edge";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
