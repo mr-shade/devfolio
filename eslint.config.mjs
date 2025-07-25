@@ -15,6 +15,15 @@ const eslintConfig = [
     rules: {
       "react/jsx-no-target-blank": "off",
       "react/no-unescaped-entities": "off",
+      //@typescript-eslint/no-unused-vars
+      "no-unused-vars": [
+        "error",
+        {
+          argsIgnorePattern: "^_",
+          varsIgnorePattern: "^_",
+        },
+      ],
+      "no-undef": "off",
     },
   }
 
